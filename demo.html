@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>MyCarousel Plugin Demo</title>  
+     
+    <style type="text/css">
+		h4{ margin:0px;}
+		/*css for customizing modal*/
+		#mymodal-close{ display:block; width:25px; height:29px; top:-10px; right:-10px; text-indent:-999em; background-image:url(image/x.png)}
+		#mymodal-wrap{ background-color:#FFF; border-color:#999; border-width:4px !important;}
+		#mymodal-dragbar{ width:300px !important;}
+    </style>
+   
+</head>
+<body>
+
+<button id="openbtn">open target modal</button>
+
+<button id="openbtn2">open content modal</button>
+
+<div style="display:block; height:800px;"></div>
+
+<!--set modal's target DOM Elements-->
+<span id="mydata" style="display:none;">
+<h4>target modal content</h4>
+<p>this is modal's targeted DOM contents, it is necessary.</p>
+<p>only for test.</p>
+<p>2013.05.07</p>
+</span>
+<!--END set modal's target DOM Elements-->
+
+<script type="text/javascript" src="mymodal.js"></script>
+
+<script type="text/javascript">
+	
+	var  btn = document.getElementById("openbtn");
+	var  btn2 = document.getElementById("openbtn2");
+	
+	btn.onclick = function(e){
+		MyModal.modal({
+			target: document.getElementById("mydata"),
+			overlayclose: true,
+			overlayalpha:.5,
+			onopen: function(){
+				alert("now it is opened!")
+				}
+			//isdrag: true
+			})
+		}
+	
+	btn2.onclick = function(e){
+		MyModal.modal({
+			content: '<span><h4>insert modal content</h4><p>this is modal\'s contents, it is necessary.</p><p>only for test.</p><p>2013.05.07</p></span>',
+			onclose: function(){
+				alert("now it is closed!")
+				},
+			isdrag: true
+			//overlayclose: true,
+			})
+		}
+	
+	
+</script>
+</body>
+</html>
